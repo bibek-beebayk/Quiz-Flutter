@@ -7,7 +7,7 @@ class Quizzler extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.grey.shade900,
+        backgroundColor: Colors.black,
         body: SafeArea(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -28,63 +28,58 @@ class _QuizPageState extends State<QuizPage> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: <Widget>[
+      children: [
         Expanded(
           flex: 5,
-          child: Padding(
-            padding: EdgeInsets.all(10.0),
-            child: Center(
-              child: Text(
-                'This is where the question text will go.',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 25.0,
-                  color: Colors.white,
-                ),
+          child: Center(
+            child: Text(
+              'The Question goes here.',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+                color: Colors.white,
               ),
             ),
           ),
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              textColor: Colors.white,
-              color: Colors.green,
+            padding: const EdgeInsets.all(8.0),
+            child: TextButton(
+              onPressed: () {},
               child: Text(
                 'True',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20.0,
+                  fontSize: 30,
                 ),
               ),
-              onPressed: () {
-                //The user picked true.
-              },
+              style: TextButton.styleFrom(
+                primary: Colors.white,
+                backgroundColor: Colors.green,
+              ),
             ),
           ),
         ),
         Expanded(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
-            child: FlatButton(
-              color: Colors.red,
+            padding: const EdgeInsets.all(8.0),
+            child: TextButton(
+              onPressed: () {},
               child: Text(
                 'False',
                 style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.white,
+                  fontSize: 30,
                 ),
               ),
-              onPressed: () {
-                //The user picked false.
-              },
+              style: TextButton.styleFrom(
+                primary: Colors.white,
+                backgroundColor: Colors.red,
+              ),
             ),
           ),
         ),
-        //TODO: Add a Row here as your score keeper
       ],
     );
   }
