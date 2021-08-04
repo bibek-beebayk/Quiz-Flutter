@@ -25,6 +25,15 @@ class QuizPage extends StatefulWidget {
 }
 
 class _QuizPageState extends State<QuizPage> {
+  List<Icon> scoreKeeper = [];
+  List<String> questions = [
+    'You can lead a cow down stairs but not up stairs.',
+    'Approximately one quarter of human bones are in the feet.',
+    'A slug\'s blood is green.'
+  ];
+
+  int questionNumber = 0;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,7 +43,7 @@ class _QuizPageState extends State<QuizPage> {
           flex: 5,
           child: Center(
             child: Text(
-              'The Question goes here.',
+              questions[questionNumber],
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -46,9 +55,13 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16.0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  questionNumber += 1;
+                });
+              },
               child: Text(
                 'True',
                 style: TextStyle(
@@ -64,9 +77,13 @@ class _QuizPageState extends State<QuizPage> {
         ),
         Expanded(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(16.0),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                setState(() {
+                  questionNumber += 1;
+                });
+              },
               child: Text(
                 'False',
                 style: TextStyle(
@@ -79,6 +96,9 @@ class _QuizPageState extends State<QuizPage> {
               ),
             ),
           ),
+        ),
+        Row(
+          children: scoreKeeper,
         ),
       ],
     );
